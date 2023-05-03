@@ -17,3 +17,13 @@ port = int(os.getenv('PORT', 80))
 print('Listening on port Nav %s' % (port))
 httpd = socketserver.TCPServer(('', port), Handler)
 httpd.serve_forever()
+
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def hello_world():
+   return 'Hello Tutorialspoint'
+
+if __name__ == '__main__':
+   app.run()
